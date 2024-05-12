@@ -7,12 +7,15 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
-    // the first element of options[0]; is the name of the player
+    MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
-  public void play() {}
+  public void play() {
+  }
 
-  public void endGame() {}
+  public void endGame() {
+  }
 
-  public void showStats() {}
+  public void showStats() {
+  }
 }
