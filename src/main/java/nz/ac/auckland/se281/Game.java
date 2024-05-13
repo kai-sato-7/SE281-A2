@@ -24,11 +24,15 @@ public class Game {
     while (true) {
       MessageCli.ASK_INPUT.printMessage();
       String input = Utils.scanner.nextLine();
-      fingers = Integer.parseInt(input);
-      if (fingers >= 0 && fingers <= 5) {
-        break;
+      try {
+        fingers = Integer.parseInt(input);
+        if (fingers >= 0 && fingers <= 5) {
+          break;
+        }
+        MessageCli.INVALID_INPUT.printMessage();
+      } catch (NumberFormatException e) {
+        MessageCli.INVALID_INPUT.printMessage();
       }
-      MessageCli.INVALID_INPUT.printMessage();
     }
   }
 
