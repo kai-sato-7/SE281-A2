@@ -16,11 +16,11 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-  MainTest.Task1.class,
-  // MainTest.Task2.class,
-  // MainTest.Task3.class,
-  // MainTest.Task4.class,
-  // MainTest.Task5.class
+    MainTest.Task1.class,
+    MainTest.Task2.class,
+// MainTest.Task3.class,
+// MainTest.Task4.class,
+// MainTest.Task5.class
 })
 public class MainTest {
 
@@ -28,10 +28,9 @@ public class MainTest {
 
     try {
 
-      String roundOut =
-          output
-              .split(START_ROUND.getMessage(String.valueOf(round)))[1]
-              .split("Player " + player + ": fingers")[1];
+      String roundOut = output
+          .split(START_ROUND.getMessage(String.valueOf(round)))[1]
+          .split("Player " + player + ": fingers")[1];
       Pattern pattern = Pattern.compile("-?\\d+");
       Matcher matcher = pattern.matcher(roundOut);
       matcher.find();
@@ -786,6 +785,7 @@ public class MainTest {
     }
 
     @Test
-    public void yourtest() throws Exception {}
+    public void yourtest() throws Exception {
+    }
   }
 }

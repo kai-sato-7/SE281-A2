@@ -35,6 +35,10 @@ public class Game {
       }
     }
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], String.valueOf(fingers));
+
+    RandomStrategy computer = new RandomStrategy();
+    int computerFingers = computer.getMove();
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(computerFingers));
   }
 
   public void endGame() {
