@@ -8,6 +8,8 @@ public class DifficultyFactory {
         switch (diff.name()) {
             case "EASY":
                 return new Easy();
+            case "MEDIUM":
+                return new Medium();
         }
         return null;
     }
