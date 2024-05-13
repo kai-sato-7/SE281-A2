@@ -20,6 +20,9 @@ public class Game {
 
   public void play() {
     MessageCli.START_ROUND.printMessage(String.valueOf(++round));
+    MessageCli.ASK_INPUT.printMessage();
+    String input = Utils.scanner.nextLine();
+    int fingers = Integer.parseInt(input);
   }
 
   public void endGame() {
