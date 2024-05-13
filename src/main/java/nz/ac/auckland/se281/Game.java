@@ -53,6 +53,7 @@ public class Game {
         String.valueOf(fingers + computerFingers),
         isEven ? "EVEN" : "ODD",
         playerWins ? options[0] : "HAL-9000");
+    difficulty.setPreviousWin(!playerWins);
   }
 
   public void endGame() {
