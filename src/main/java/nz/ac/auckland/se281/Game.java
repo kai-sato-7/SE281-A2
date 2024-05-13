@@ -24,21 +24,26 @@ public class Game {
     while (true) {
       MessageCli.ASK_INPUT.printMessage();
       String input = Utils.scanner.nextLine();
-      try {
+      if (Utils.isInteger(input)) {
         fingers = Integer.parseInt(input);
         if (fingers >= 0 && fingers <= 5) {
           break;
         }
-        MessageCli.INVALID_INPUT.printMessage();
-      } catch (NumberFormatException e) {
-        MessageCli.INVALID_INPUT.printMessage();
       }
+      MessageCli.INVALID_INPUT.printMessage();
     }
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], String.valueOf(fingers));
 
     RandomStrategy computer = new RandomStrategy();
     int computerFingers = computer.getMove();
+    boolean isEven = Utils.isEven(fingers + computerFingers);
+    boolean playerWins = isEven == (choice == Choice.EVEN);
+
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(computerFingers));
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(
+        String.valueOf(fingers + computerFingers),
+        isEven ? "EVEN" : "ODD",
+        playerWins ? options[0] : "HAL-9000");
   }
 
   public void endGame() {
