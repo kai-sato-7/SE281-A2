@@ -1,14 +1,18 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public class TopStrategy implements Strategy {
 
-    private int[] history;
+    private ArrayList<Integer> history;
     private boolean evenWins;
 
-    public void setHistory(int[] history) {
+    @Override
+    public void setHistory(ArrayList<Integer> history) {
         this.history = history;
     }
 
+    @Override
     public void setEvenWins(boolean evenWins) {
         this.evenWins = evenWins;
     }
@@ -16,15 +20,18 @@ public class TopStrategy implements Strategy {
     @Override
     public int getMove() {
         int evenCount = 0;
-        for (int i = 0; i < history.length; i++) {
-            if (Utils.isEven(history[i])) {
+        for (int i : history) {
+            if (Utils.isEven(i)) {
                 evenCount++;
             }
         }
 
-        if (evenCount == history.length / 2) {
+        System.out.println(this.history);
+        System.out.println(this.evenWins);
+
+        if (evenCount == history.size() / 2) {
             return Utils.getRandomNumberRange(0, 5);
-        } else if (evenCount > history.length / 2) {
+        } else if (evenCount > history.size() / 2) {
             if (evenWins) {
                 return Utils.getRandomEvenNumber();
             } else {

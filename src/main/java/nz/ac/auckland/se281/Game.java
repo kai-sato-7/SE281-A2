@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -7,14 +9,16 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   private int round = 0;
-  private Difficulty difficulty;
+  private Diff difficulty;
   private Choice choice;
   private String[] options;
+  private ArrayList<Integer> history;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
-    this.difficulty = difficulty;
+    this.difficulty = DifficultyFactory.createDifficulty(difficulty);
     this.choice = choice;
     this.options = options;
+    this.history = new ArrayList<Integer>();
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
@@ -32,10 +36,12 @@ public class Game {
       }
       MessageCli.INVALID_INPUT.printMessage();
     }
+    history.add(fingers);
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], String.valueOf(fingers));
 
-    Diff diff = DifficultyFactory.createDifficulty(difficulty);
-    Strategy computer = diff.getStrategy();
+    Strategy computer = difficulty.getStrategy();
+    computer.setHistory(history);
+    computer.setEvenWins(choice == Choice.ODD);
 
     int computerFingers = computer.getMove();
     boolean isEven = Utils.isEven(fingers + computerFingers);

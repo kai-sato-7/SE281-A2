@@ -2,11 +2,12 @@ package nz.ac.auckland.se281;
 
 public class Medium implements Diff {
 
-    private int round = 1;
+    private int round = 0;
 
     @Override
     public Strategy getStrategy() {
-        if (++round < 4) {
+        round++;
+        if (round < 4) {
             return new RandomStrategy();
         }
         return new TopStrategy();
