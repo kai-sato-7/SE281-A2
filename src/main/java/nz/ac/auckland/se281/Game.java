@@ -34,6 +34,7 @@ public class Game {
         MessageCli.INVALID_INPUT.printMessage();
       }
     }
+    MessageCli.PRINT_INFO_HAND.printMessage(options[0], "3");
   }
 
   public void endGame() {
