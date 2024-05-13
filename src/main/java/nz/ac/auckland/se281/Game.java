@@ -20,9 +20,16 @@ public class Game {
 
   public void play() {
     MessageCli.START_ROUND.printMessage(String.valueOf(++round));
-    MessageCli.ASK_INPUT.printMessage();
-    String input = Utils.scanner.nextLine();
-    int fingers = Integer.parseInt(input);
+    int fingers = -1;
+    while (true) {
+      MessageCli.ASK_INPUT.printMessage();
+      String input = Utils.scanner.nextLine();
+      fingers = Integer.parseInt(input);
+      if (fingers >= 0 && fingers <= 5) {
+        break;
+      }
+      MessageCli.INVALID_INPUT.printMessage();
+    }
   }
 
   public void endGame() {
