@@ -34,7 +34,9 @@ public class Game {
     }
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], String.valueOf(fingers));
 
-    RandomStrategy computer = new RandomStrategy();
+    Diff diff = DifficultyFactory.createDifficulty(difficulty);
+    Strategy computer = diff.getStrategy();
+
     int computerFingers = computer.getMove();
     boolean isEven = Utils.isEven(fingers + computerFingers);
     boolean playerWins = isEven == (choice == Choice.EVEN);
