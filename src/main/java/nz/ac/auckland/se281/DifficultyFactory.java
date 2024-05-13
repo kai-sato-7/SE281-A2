@@ -10,6 +10,8 @@ public class DifficultyFactory {
                 return new Easy();
             case "MEDIUM":
                 return new Medium();
+            case "HARD":
+                return new Hard();
         }
         return null;
     }

@@ -13,6 +13,7 @@ public class Game {
   private Choice choice;
   private String[] options;
   private ArrayList<Integer> history;
+  private boolean previousWin;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     this.difficulty = DifficultyFactory.createDifficulty(difficulty);
