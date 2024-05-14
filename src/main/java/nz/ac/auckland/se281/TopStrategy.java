@@ -2,6 +2,7 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
+// Top strategy which selects even or odd fingers based on the player history
 public class TopStrategy implements Strategy {
 
     private ArrayList<Integer> history;

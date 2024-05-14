@@ -2,6 +2,7 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
+// Factory design pattern to create difficulty levels
 public class DifficultyFactory {
 
     public static Diff createDifficulty(Difficulty diff) {

@@ -1,5 +1,6 @@
 package nz.ac.auckland.se281;
 
+// Hard strategy with RandomStrategy and then changing between TopStrategy and RandomStrategy
 public class Hard implements Diff {
 
     private int round = 0;
