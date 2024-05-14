@@ -8,7 +8,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  private int round;
+  private int round = -1;
   private int playerWins;
   private Diff difficulty;
   private Choice choice;
@@ -26,7 +26,7 @@ public class Game {
   }
 
   public void play() {
-    if (difficulty == null) {
+    if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
@@ -66,7 +66,7 @@ public class Game {
   }
 
   public void endGame() {
-    if (difficulty == null) {
+    if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
@@ -81,10 +81,12 @@ public class Game {
     } else {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
+    round = -1;
+
   }
 
   public void showStats() {
-    if (difficulty == null) {
+    if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
