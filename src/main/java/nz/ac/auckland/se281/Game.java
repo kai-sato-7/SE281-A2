@@ -9,6 +9,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   private int round;
+  private int playerWins;
   private Diff difficulty;
   private Choice choice;
   private String[] options;
@@ -16,6 +17,7 @@ public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     this.round = 0;
+    this.playerWins = 0;
     this.difficulty = DifficultyFactory.createDifficulty(difficulty);
     this.choice = choice;
     this.options = options;
@@ -51,6 +53,9 @@ public class Game {
     int computerFingers = computer.getMove();
     boolean isEven = Utils.isEven(fingers + computerFingers);
     boolean playerWins = isEven == (choice == Choice.EVEN);
+    if (playerWins) {
+      this.playerWins++;
+    }
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(computerFingers));
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(
@@ -72,5 +77,9 @@ public class Game {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
+    MessageCli.PRINT_PLAYER_WINS.printMessage(options[0], String.valueOf(playerWins),
+        String.valueOf(round - playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", String.valueOf(round - playerWins),
+        String.valueOf(playerWins));
   }
 }
