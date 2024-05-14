@@ -8,13 +8,14 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  private int round = 0;
+  private int round;
   private Diff difficulty;
   private Choice choice;
   private String[] options;
   private ArrayList<Integer> history;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
+    this.round = 0;
     this.difficulty = DifficultyFactory.createDifficulty(difficulty);
     this.choice = choice;
     this.options = options;
