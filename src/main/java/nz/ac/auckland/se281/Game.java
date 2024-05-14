@@ -64,5 +64,9 @@ public class Game {
   }
 
   public void showStats() {
+    if (difficulty == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
   }
 }
