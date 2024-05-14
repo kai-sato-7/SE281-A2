@@ -13,7 +13,6 @@ public class Game {
   private Choice choice;
   private String[] options;
   private ArrayList<Integer> history;
-  private boolean previousWin;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     this.difficulty = DifficultyFactory.createDifficulty(difficulty);
@@ -24,6 +23,10 @@ public class Game {
   }
 
   public void play() {
+    if (difficulty == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
     MessageCli.START_ROUND.printMessage(String.valueOf(++round));
     int fingers = -1;
     while (true) {
