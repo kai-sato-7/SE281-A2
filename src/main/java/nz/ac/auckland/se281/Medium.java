@@ -1,6 +1,9 @@
 package nz.ac.auckland.se281;
 
-// Medium strategy with RandomStrategy and then TopStrategy
+/**
+ * Represents the medium difficulty level with RandomStrategy and then
+ * TopStrategy.
+ */
 public class Medium implements Diff {
 
   private int round = 0;

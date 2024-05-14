@@ -15,7 +15,13 @@ public class Game {
   private String[] options;
   private ArrayList<Integer> history;
 
-  // Initializes the game with the given parameters.
+  /**
+   * Starts a new game with the given difficulty, choice and options.
+   * 
+   * @param difficulty the difficulty of the game
+   * @param choice     the odd/even choice of the player
+   * @param options    the player name
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     this.round = 0;
     this.playerWins = 0;
@@ -26,7 +32,9 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
-  // Plays a round of the game.
+  /**
+   * Plays a round of the game.
+   */
   public void play() {
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
@@ -48,6 +56,7 @@ public class Game {
     history.add(fingers);
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], String.valueOf(fingers));
 
+    // Initializes the computer strategy
     Computer computer = new Computer(difficulty.getStrategy());
     computer.setHistory(history);
     computer.setEvenWins(choice == Choice.ODD);
@@ -67,7 +76,9 @@ public class Game {
     difficulty.setPreviousWin(!playerWins);
   }
 
-  // Ends the game and prints the stats and result.
+  /**
+   * Ends the game and prints the stats and winner.
+   */
   public void endGame() {
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
@@ -85,10 +96,11 @@ public class Game {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
     round = -1;
-
   }
 
-  // Shows the stats of the game.
+  /**
+   * Shows the stats of the game.
+   */
   public void showStats() {
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();

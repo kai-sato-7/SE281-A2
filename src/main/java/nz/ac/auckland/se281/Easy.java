@@ -1,6 +1,8 @@
 package nz.ac.auckland.se281;
 
-// Easy strategy with only RandomStrategy
+/**
+ * Represents the easy difficulty level with only RandomStrategy.
+ */
 public class Easy implements Diff {
 
   @Override

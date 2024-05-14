@@ -1,6 +1,9 @@
 package nz.ac.auckland.se281;
 
-// Hard strategy with RandomStrategy and then changing between TopStrategy and RandomStrategy
+/**
+ * Represents the hard difficulty level with RandomStrategy, then changing
+ * between TopStrategy and RandomStrategy.
+ */
 public class Hard implements Diff {
 
   private int round = 0;
@@ -12,6 +15,7 @@ public class Hard implements Diff {
     this.previousWin = previousWin;
   }
 
+  // RandomStrategy for the first 3 rounds, then swapping strategy every loss
   @Override
   public Strategy getStrategy() {
     round++;
