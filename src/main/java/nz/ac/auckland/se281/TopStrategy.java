@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 
 /**
- * Selects even or odd fingers based on the player history
+ * Selects even or odd fingers based on the player history.
  */
 public class TopStrategy implements Strategy {
 
@@ -20,9 +20,9 @@ public class TopStrategy implements Strategy {
     this.evenWins = evenWins;
   }
 
-  // Selects even or odd fingers based on the player's odd/even preference
   @Override
   public int getMove() {
+    // Selects even or odd fingers based on the player's odd/even preference
     int evenCount = 0;
     for (int i : history) {
       if (Utils.isEven(i)) {

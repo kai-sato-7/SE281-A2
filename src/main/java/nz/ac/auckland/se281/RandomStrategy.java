@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 
 /**
- * Randomly selects fingers to play
+ * Randomly selects fingers to play.
  */
 public class RandomStrategy implements Strategy {
 

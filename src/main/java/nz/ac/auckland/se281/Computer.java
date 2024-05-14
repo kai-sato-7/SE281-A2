@@ -2,7 +2,7 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-/** Strategy design pattern to change computer strategies */
+/** Strategy design pattern to change computer strategies. */
 public class Computer {
 
   private Strategy strategy;

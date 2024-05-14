@@ -15,9 +15,9 @@ public class Hard implements Diff {
     this.previousWin = previousWin;
   }
 
-  // RandomStrategy for the first 3 rounds, then swapping strategy every loss
   @Override
   public Strategy getStrategy() {
+    // RandomStrategy for the first 3 rounds, then swapping strategy every loss
     round++;
     if (round < 4) {
       previousStrategy = "RANDOM";

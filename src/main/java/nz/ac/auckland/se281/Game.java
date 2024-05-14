@@ -23,6 +23,7 @@ public class Game {
    * @param options    the player name
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
+    // Starts a new game with the given difficulty, choice and options.
     this.round = 0;
     this.playerWins = 0;
     this.difficulty = DifficultyFactory.createDifficulty(difficulty);
@@ -36,6 +37,7 @@ public class Game {
    * Plays a round of the game.
    */
   public void play() {
+    // Plays a round of the game.
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
@@ -80,6 +82,7 @@ public class Game {
    * Ends the game and prints the stats and winner.
    */
   public void endGame() {
+    // Ends the game and prints the stats and winner.
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
@@ -102,6 +105,7 @@ public class Game {
    * Shows the stats of the game.
    */
   public void showStats() {
+    // Shows the stats of the game.
     if (round == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;

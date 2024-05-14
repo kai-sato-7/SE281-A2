@@ -2,10 +2,14 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
-/** Factory design pattern to create difficulty levels */
+/** Factory design pattern to create difficulty levels. */
 public class DifficultyFactory {
 
-  // Creates difficulty level based on diff
+  /**
+   * Creates difficulty level based on difficulty.
+   * 
+   * @param diff Difficulty level
+   */
   public static Diff createDifficulty(Difficulty diff) {
     switch (diff.name()) {
       case "EASY":
