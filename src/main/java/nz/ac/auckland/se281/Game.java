@@ -70,6 +70,17 @@ public class Game {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
+    MessageCli.PRINT_PLAYER_WINS.printMessage(options[0], String.valueOf(playerWins),
+        String.valueOf(round - playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", String.valueOf(round - playerWins),
+        String.valueOf(playerWins));
+    if (playerWins > round - playerWins) {
+      MessageCli.PRINT_END_GAME.printMessage(options[0]);
+    } else if (playerWins < round - playerWins) {
+      MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
+    } else {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    }
   }
 
   public void showStats() {
